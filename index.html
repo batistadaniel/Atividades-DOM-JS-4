@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            display: block;
+        }
+        
+        input {
+            margin-bottom: 10px;
+        }
+        
+        button {
+            margin-top: 10px;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            margin-bottom: 10px;
+        }
+    </style>
+    <title>Atividades - DOM JS 4</title>
+</head>
+<body>
+    <form>
+        <h1>Calculadora de medias</h1>
+
+        <label for="nota1">Nota 1:</label>
+        <input type="number" name="nota1" id="nota1">
+
+        <label for="nota2">Nota 2:</label>
+        <input type="number" name="nota2" id="nota2">
+
+        <div id="resultado"></div>
+
+        <button type="button" onclick="calcularMedia()">Calcular media</button>
+    </form>
+
+    <script>
+        function calcularMedia() {
+            let nota1Convert = Number(document.getElementById("nota1").value);
+            let nota2Convert = Number(document.getElementById("nota2").value);
+            let media = (nota1Convert + nota2Convert) / 2;
+            let resultado = document.getElementById("resultado");
+
+            if (media >= 7) {
+                resultado.style.color = "green";
+                resultado.innerHTML = `Aluno aprovado`;
+
+                return resultado;
+            } else if (media < 7){
+                resultado.style.color = "red";
+                resultado.innerHTML = `Aluno reprovado`;
+            }
+        }
+    </script>
+</body>
+</html>
